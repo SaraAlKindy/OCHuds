@@ -44,35 +44,35 @@ open class MessageBaseHUD {
         instance?.show()
         
         let time = DispatchTime.now() + Double(Int64(animationDuration * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: time) { _ in
+        DispatchQueue.main.asyncAfter(deadline: time) { 
             hide()
         }
         
         return true
     }
     
-    open static func showSuccess(withMessage message: String? = "Success") {
+    public static func showSuccess(withMessage message: String? = "Success") {
         show(withStatus: .success, message: message)
     }
     
-    open static func showFailure(withMessage message: String? = "Failure") {
+    public static func showFailure(withMessage message: String? = "Failure") {
         show(withStatus: .failure, message: message)
     }
     
-    open static func showWarning(withMessage message: String) {
+    public static func showWarning(withMessage message: String) {
         show(withStatus: .warning, message: message)
     }
     
-    open static func show(withCustomImage image: UIImage, message: String) {
+    public static func show(withCustomImage image: UIImage, message: String) {
         show(withStatus: .regular, message: message, customImage: image)
     }
     
-    open static func showMessage(_ message: String) {
+    public static func showMessage(_ message: String) {
         show(withStatus: .regular, message: message)
     }
     
     @discardableResult
-    open static func hide() -> Bool {
+    public static func hide() -> Bool {
         guard let instance = instance else {
             return false
         }

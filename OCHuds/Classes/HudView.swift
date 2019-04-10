@@ -53,7 +53,7 @@ internal class HudView: UIView {
     func show() {
         UIApplication.shared.beginIgnoringInteractionEvents()
         
-        UIView.transition(with: viewController.view, duration: 0.6, options: UIViewAnimationOptions.transitionCrossDissolve,
+        UIView.transition(with: viewController.view, duration: 0.6, options: UIView.AnimationOptions.transitionCrossDissolve,
                                   animations: {self.viewController.view.addSubview(self)}, completion: nil)
         fillSuperview()
     }

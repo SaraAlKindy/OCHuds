@@ -18,7 +18,7 @@ open class BaseHUD {
     }
     
     @discardableResult
-    open static func show() -> Bool {
+    public static func show() -> Bool {
         if instance != nil {
             return false
         }
@@ -38,18 +38,18 @@ open class BaseHUD {
     }
     
     @discardableResult
-    open static func show(withDelay seconds: Double) -> Bool {
+    public static func show(withDelay seconds: Double) -> Bool {
         let result = show()
         
         let time = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: time) { _ in
+        DispatchQueue.main.asyncAfter(deadline: time) { 
             hide()
         }
         return result
     }
     
     @discardableResult
-    open static func hide() -> Bool {
+    public static func hide() -> Bool {
         guard let instance = instance else {
             return false
         }

@@ -13,14 +13,14 @@ open class AnimatedBaseHUD {
     fileprivate static var instance: HudView?
     fileprivate static var isHiding = false
     
-    fileprivate static let animationDuration = 2.0
+    public static let animationDuration = 2.0
     
     internal class func customHud(withViewController viewController: UIViewController, images: [UIImage], backgroundColor: UIColor, animationDuration: Double) -> HudView? {
         return nil
     }
     
     @discardableResult
-    open static func show(withImages images: [UIImage], backgroundColor: UIColor = UIColor.white, animationDuration: Double = animationDuration) -> Bool {
+    public static func show(withImages images: [UIImage], backgroundColor: UIColor = UIColor.white, animationDuration: Double = animationDuration) -> Bool {
         if instance != nil {
             return false
         }
@@ -40,7 +40,7 @@ open class AnimatedBaseHUD {
     }
     
     @discardableResult
-    open static func hide() -> Bool {
+    public static func hide() -> Bool {
         guard let instance = instance else {
             return false
         }
